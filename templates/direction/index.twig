@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="page">
+		<div class="card mt-2">
+			<div class="card-header text-center">
+				<b class="h6">
+					Direcciones
+				</b>
+				<div class="float-right">
+					{% include 'common/createButton.twig' with {'create': '#saveDirectionModal'} %}
+				</div>
+			</div>
+			<div class="card-body p-4">
+				<div class="text-center mt-2" id="spinner-div">
+					<div class="spinner-border text-primary" role="status"></div>
+				</div>
+				<div class="table-container">
+					{% include 'direction/_table.twig' %}
+				</div>
+				{% include 'direction/_modalSave.twig' %}
+			</div>
+		</div>
+	</div>
+	<br>
+	<div id="loading"></div>
+{% endblock %}
+{% block javascript %}
+	{{parent()}}
+	<script src="{{asset('js/customJs/loadingDatatable.js') }}"></script>
+	<script src="{{asset('js/customJs/direction.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,5 @@
+{% if path is defined %}
+    <a class="btn btn-primary text-white ml-2" href="{{ path(path) }}">Nuevo<i class="fas fa-plus ml-2"></i></a>
+{% else %}
+    <a class="btn btn-primary text-white ml-2" data-toggle="modal" data-target="{{create}}">Nuevo<i class="fas fa-plus ml-2"></i></a>
+{% endif %}

@@ -1,0 +1,8 @@
+.tox-promotion,
+.tox-statusbar__branding {
+  display: none;
+}
+
+.selected-row {
+  background-color: rgb(255, 255, 184);
+}

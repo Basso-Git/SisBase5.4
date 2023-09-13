@@ -10,6 +10,7 @@
 		{% block stylesheets %}
 			<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 			<link href="{{ asset('css/custom/base.css') }}" rel="stylesheet">
+			<link href="{{ asset('css/custom/site.css') }}" rel="stylesheet">
 		{% endblock %}
 
 		{% block javascripts %}
@@ -17,7 +18,7 @@
 			<script src="{{ asset('js/popper.min.js') }}"></script>
 			<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 			<script src="{{ asset('js/dataTablejQuery.js') }}"></script>
-        	<script src="{{ asset('js/dataTableBs.js') }}"></script>
+			<script src="{{ asset('js/dataTableBs.js') }}"></script>
 			<script src="{{ asset('js/fontawesome.js') }}"></script>
 			<script src="{{ asset('js/jquery.table2excel.js') }}"></script>
 			<script src="{{ asset('js/sweet_alert.js') }}"></script>
@@ -33,20 +34,22 @@
 		{% endblock %}
 	</head>
 	<body>
-		<div class="container"> {% block body %}{% endblock %}
-			</div>
-			{% block bodyFooter %}
-				<br>
-				<div class="fixed-bottom row" style="color: white;vertical-align: middle;text-align: center;background-color: black;font-size: 12px;">
-					<div class="col-md-4" id="footer-1" name="footer-1"></div>
-					<div class="col-md-4" id="footer-2" name="footer-2">
-						<span>BASSO S.A.
-							{{ 'now' | date('Y') }}
-							Copyright © - Todos los derechos reservados</span>
-					</div>
-					<div class="col-md-4" id="footer-3" name="footer-3"></div>
-
-				</div>
+		<div class="container">
+			{% block body %}Probando
 			{% endblock %}
-		</body>
-	</html>
+		</div>
+		{% block bodyFooter %}
+			<br>
+			<div class="fixed-bottom row" style="color: white;vertical-align: middle;text-align: center;background-color: black;font-size: 12px;">
+				<div class="col-md-4" id="footer-1" name="footer-1"></div>
+				<div class="col-md-4" id="footer-2" name="footer-2">
+					<span>BASSO S.A.
+						{{ 'now' | date('Y') }}
+						Copyright © - Todos los derechos reservados</span>
+				</div>
+				<div class="col-md-4" id="footer-3" name="footer-3"></div>
+
+			</div>
+		{% endblock %}
+	</body>
+</html>
