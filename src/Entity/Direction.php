@@ -2,21 +2,21 @@
 
 namespace App\Entity;
 
-use App\Repository\AreaRepository;
+use App\Repository\DirectionRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="neosys.p_area")
- * @ORM\Entity(repositoryClass=AreaRepository::class)
+ * @ORM\Table(name="neosys.p_direccion")
+ * @ORM\Entity(repositoryClass=DirectionRepository::class)
  */
-class Area
+class Direction
 {
-    const TABLE_NAME = "p_area";
+    const TABLE_NAME = "p_direccion";
 
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      */
     private $id;
 

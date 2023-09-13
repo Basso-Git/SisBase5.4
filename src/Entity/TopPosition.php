@@ -2,21 +2,21 @@
 
 namespace App\Entity;
 
-use App\Repository\AreaRepository;
+use App\Repository\TopPositionRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="neosys.p_area")
- * @ORM\Entity(repositoryClass=AreaRepository::class)
+ * @ORM\Table(name="neosys.p_puesto_superior")
+ * @ORM\Entity(repositoryClass=TopPositionRepository::class)
  */
-class Area
+class TopPosition
 {
-    const TABLE_NAME = "p_area";
+    const TABLE_NAME = "p_puesto_superior";
 
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      */
     private $id;
 
