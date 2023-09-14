@@ -12,7 +12,6 @@
 			<link href="{{ asset('css/custom/base.css') }}" rel="stylesheet">
 			<link href="{{ asset('css/custom/site.css') }}" rel="stylesheet">
 		{% endblock %}
-
 		{% block javascripts %}
 			<script src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
 			<script src="{{ asset('js/popper.min.js') }}"></script>
@@ -34,22 +33,81 @@
 		{% endblock %}
 	</head>
 	<body>
-		<div class="container">
-			{% block body %}Probando
-			{% endblock %}
-		</div>
-		{% block bodyFooter %}
-			<br>
-			<div class="fixed-bottom row" style="color: white;vertical-align: middle;text-align: center;background-color: black;font-size: 12px;">
-				<div class="col-md-4" id="footer-1" name="footer-1"></div>
-				<div class="col-md-4" id="footer-2" name="footer-2">
-					<span>BASSO S.A.
-						{{ 'now' | date('Y') }}
-						Copyright © - Todos los derechos reservados</span>
-				</div>
-				<div class="col-md-4" id="footer-3" name="footer-3"></div>
+		<nav class="navbar navbar-expand-lg navbar-light bg-basso-red sticky-top">
+			<div class="container">
+				<a href="{{ path('homepage') }}" class="logoBasso navbar-brand">
+					<img src="{{ asset('img/bassosa.png') }}" height="28" alt="Basso S.A.">
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Archivo
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="{{ path('area_index') }}">Areas</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="{{ path('direction_index') }}">Direcciones</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="{{ path('top_position_index') }}">Puestos Superiores</a>
+							</div>
+						</li>
+						{# <li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Puestos
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="{{ path('position_index') }}">Detalle</a>
+								{% if is_granted("ROLE_ADMIN") %}
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="{{ path('category_index') }}">Categorías puesto</a>
+								{% endif %}
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Diccionarios
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="{{ path('dictionary_index') }}">Detalle</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="{{ path('dictionary_cat_index') }}">Categorías diccionario</a>
+							</div>
+						</li> #}
+						{% if app.user %}
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									{{ app.user.username }}
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdownUser">
+									<a class="dropdown-item" href="{{ path('logout') }}">
+										<i class="me-2 fas fa-hand-point-left"></i>Salir</a>
+								</div>
+							</li>
+						{% endif %}
+					</ul>
+				</div>
 			</div>
-		{% endblock %}
-	</body>
-</html>
+		</nav>
+
+		<div class="container"> {% block body %}{% endblock %}
+			</div>
+			{% block bodyFooter %}
+				<br>
+				<div class="fixed-bottom row" style="color: white;vertical-align: middle;text-align: center;background-color: black;font-size: 12px;">
+					<div class="col-md-4" id="footer-1" name="footer-1"></div>
+					<div class="col-md-4" id="footer-2" name="footer-2">
+						<span>BASSO S.A.
+							{{ 'now' | date('Y') }}
+							Copyright © - Todos los derechos reservados</span>
+					</div>
+					<div class="col-md-4" id="footer-3" name="footer-3"></div>
+
+				</div>
+			{% endblock %}
+		</body>
+	</html>

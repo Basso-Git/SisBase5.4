@@ -1,26 +1,24 @@
 <form id="saveAreaForm">
-	<div class="modal fade" id="saveAreaModal" tabindex="-1" role="dialog" aria-labelledby="saveAreaModalLabel" aria-hidden="true">
+	<div class="modal fade" id="saveAreaModal" tabindex="-1" aria-labelledby="saveAreaModalLabel" aria-hidden="true">
 		<input type="hidden" name="mode" id="mode" value="create"/>
 		<input type="hidden" name="id" id="id" value=""/>
-		<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="saveAreaModalLabel">Area</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<div class="row">
 						<div class="col-6">
-							<label>Descripción<span class="ml-1 text-danger">*</span>
+							<label for="description">Descripción<span class="ms-1 text-danger">*</span>
 							</label>
-							<input class="form-control" type="text" name="description" maxlength="100" required>
+							<input class="form-control" type="text" id="description" name="description" maxlength="100" required>
 						</div>
 						<div class="col-6">
-							<label>Dirección<span class="ml-1 text-danger">*</span>
+							<label for="directionId">Dirección<span class="ms-1 text-danger">*</span>
 							</label>
-							<select class="form-control" name="directionId" required>
+							<select class="form-select" id="directionId" name="directionId" required>
 								<option value="">Seleccione una opción</option>
 								{% for direction in directions %}
 									<option value="{{direction.id}}">{{direction.description}}</option>
@@ -30,25 +28,18 @@
 					</div>
 					<div class="row mt-3">
 						<div class="col-2">
-							<label>Fecha<span class="ml-1 text-danger">*</span>
+							<label for="dateM">Fecha<span class="ms-1 text-danger">*</span>
 							</label>
-							<input class="form-control" type="text" name="dateM" value="{{'now'|date('d/m/Y')}}" readonly>
+							<input class="form-control" type="text" id="dateM" name="dateM" value="{{ 'now'|date('d/m/Y') }}" readonly>
 						</div>
 						<div class="col-2">
-							<label>Creado por<span class="ml-1 text-danger">*</span>
+							<label for="userM">Creado por<span class="ms-1 text-danger">*</span>
 							</label>
-							<input class="form-control" type="text" name="userM" value="{{app.user.username}}" readonly>
+							<input class="form-control" type="text" id="userM" name="userM" value="{{ app.user.username }}" readonly>
 						</div>
 					</div>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
-						<i class="fas fa-times mr-2"></i>Cerrar</button>
-					<button class="btn btn-info" type="submit">
-						<i class="far fa-check-circle"></i>
-						Guardar
-					</button>
-				</div>
+				{% include "common/footerModal.twig" %}
 			</div>
 		</div>
 	</div>

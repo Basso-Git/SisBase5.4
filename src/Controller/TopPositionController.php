@@ -43,6 +43,19 @@ class TopPositionController extends BaseController
     }
 
     /**
+     * @Route("/get_all", name="top_position_get_all")
+     */
+    public function getAll()
+    {
+        try {
+            $topPositions = $this->baseHandler->getAllAsArray(self::ENTITY_CLASS);
+            return $this->jsonResponse("success", 200, $topPositions);
+        } catch (\Exception $e) {
+            return $this->jsonResponse("error", 500, null, $e->getMessage());
+        }
+    }
+
+    /**
      * @Route("/create", name="top_position_create")
      */
     public function create(Request $request)
@@ -65,19 +78,6 @@ class TopPositionController extends BaseController
         try {
             $topPosition = $this->findByIdObject($id, self::ENTITY_CLASS);
             return $this->successResponse($topPosition);
-        } catch (\Exception $e) {
-            return $this->jsonResponse("error", 500, null, $e->getMessage());
-        }
-    }
-
-    /**
-     * @Route("/get_all", name="top_position_get_all")
-     */
-    public function getAll()
-    {
-        try {
-            $topPositions = $this->baseHandler->getAllAsArray(self::ENTITY_CLASS);
-            return $this->jsonResponse("success", 200, $topPositions);
         } catch (\Exception $e) {
             return $this->jsonResponse("error", 500, null, $e->getMessage());
         }

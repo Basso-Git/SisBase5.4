@@ -40,6 +40,19 @@ class AreaController extends BaseController
     }
 
     /**
+     * @Route("/get_all", name="area_get_all")
+     */
+    public function getAll()
+    {
+        try {
+            $areas = $this->baseHandler->getAllAsArray(self::ENTITY_CLASS);
+            return $this->jsonResponse("success", 200, $areas);
+        } catch (\Exception $e) {
+            return $this->jsonResponse("error", 500, null, $e->getMessage());
+        }
+    }
+
+    /**
      * @Route("/create", name="area_create")
      */
     public function create(Request $request)
@@ -62,19 +75,6 @@ class AreaController extends BaseController
         try {
             $area = $this->findByIdObject($id, self::ENTITY_CLASS);
             return $this->successResponse($area);
-        } catch (\Exception $e) {
-            return $this->jsonResponse("error", 500, null, $e->getMessage());
-        }
-    }
-
-    /**
-     * @Route("/get_all", name="area_get_all")
-     */
-    public function getAll()
-    {
-        try {
-            $areas = $this->baseHandler->getAllAsArray(self::ENTITY_CLASS);
-            return $this->jsonResponse("success", 200, $areas);
         } catch (\Exception $e) {
             return $this->jsonResponse("error", 500, null, $e->getMessage());
         }

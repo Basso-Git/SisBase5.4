@@ -26,6 +26,19 @@ class DirectionController extends BaseController
     }
 
     /**
+     * @Route("/get_all", name="direction_get_all")
+     */
+    public function getAll(BaseHandler $handler)
+    {
+        try {
+            $directions = $handler->getAllAsArray(self::ENTITY_CLASS);
+            return $this->jsonResponse("success", 200, $directions);
+        } catch (\Exception $e) {
+            return $this->jsonResponse("error", 500, null, $e->getMessage());
+        }
+    }
+
+    /**
      * @Route("/create", name="direction_create")
      */
     public function create(Request $request, BaseHandler $handler)
@@ -50,19 +63,6 @@ class DirectionController extends BaseController
             //Sino tendria que en el HTML en cada NAME de los inputs, ponerlos en español y en mayus
             $direction = $this->findByIdObject($id, self::ENTITY_CLASS);
             return $this->successResponse($direction);
-        } catch (\Exception $e) {
-            return $this->jsonResponse("error", 500, null, $e->getMessage());
-        }
-    }
-
-    /**
-     * @Route("/get_all", name="direction_get_all")
-     */
-    public function getAll(BaseHandler $handler)
-    {
-        try {
-            $directions = $handler->getAllAsArray(self::ENTITY_CLASS);
-            return $this->jsonResponse("success", 200, $directions);
         } catch (\Exception $e) {
             return $this->jsonResponse("error", 500, null, $e->getMessage());
         }

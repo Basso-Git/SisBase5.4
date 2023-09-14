@@ -1,19 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+	{% include "common/breadcrumbs.twig" with {'currentPage': 'Puestos Superiores'} %}
 	<div class="page">
 		<div class="card mt-2">
 			<div class="card-header text-center">
 				<b class="h6">
 					Puestos superiores
 				</b>
-				<div class="float-right">
+				<div class="float-end">
 					{% include 'common/createButton.twig' with {'create': '#saveTopPositionModal'} %}
 				</div>
 			</div>
 			<div class="card-body p-4">
 				<div class="text-center mt-2" id="spinner-div">
-					<div class="spinner-border text-primary" role="status"></div>
+					<div class="spinner-border text-primary"></div>
 				</div>
 				<div class="table-container">
 					{% include 'top_position/_table.twig' %}
@@ -27,6 +28,5 @@
 {% endblock %}
 {% block javascript %}
 	{{parent()}}
-	<script src="{{asset('js/customJs/loadingDatatable.js') }}"></script>
 	<script src="{{asset('js/customJs/topPosition.js') }}"></script>
 {% endblock %}

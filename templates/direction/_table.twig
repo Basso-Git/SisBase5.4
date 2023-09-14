@@ -16,7 +16,7 @@
 		</tr>
 	</thead>
 	<tfoot>
-		<tr class="noExl">
+		<tr class="text-center noExl">
 			<th>
 				#
 			</th>
@@ -32,18 +32,4 @@
 		</tr>
 	</tfoot>
 </table>
-<div class="row mt-3">
-	<div class="col-md-4 pull-left">
-		<div class="dropdown dropup">
-			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-				<i class="fa fa-bars"></i>
-				Exportar Datos
-				<span class="caret"></span>
-			</button>
-			<div class="dropdown-menu">
-				<a class="dropdown-item" onclick="exportToExcel('directionsTable')" href="#"><img src="{{ asset('images/icons/xls.png') }}" width="24">
-					Excel</a>
-			</div>
-		</div>
-	</div>
-</div>
+{% include "common/exportToExcel.twig" with {'table': 'directionsTable'} %}

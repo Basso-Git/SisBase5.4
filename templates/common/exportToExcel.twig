@@ -1,0 +1,17 @@
+<div class="row mt-3">
+	<div class="col-md-4 float-start">
+		<div class="dropdown dropup">
+			<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+				<i class="fa fa-bars"></i>
+				Exportar Datos
+				<span class="caret"></span>
+			</button>
+			<div class="dropdown-menu">
+				<a class="dropdown-item" href="#" onclick="exportToExcel('{{table}}')">
+					<img src="{{ asset('img/icon/xls.png') }}" width="24" alt="Excel">
+					Excel
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

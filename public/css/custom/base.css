@@ -1,24 +1,24 @@
 /* navbar */
 .bg-basso-red {
-    background-color: #bd2821 !important;
-  }
-  
-  .navbar .navbar-nav > li > a {
-    color: #fff;
-  }
-  
-  .navbar .navbar-nav > li > a:hover,
-  .navbar .navbar-nav > li > a:focus {
-    font-weight: bold;
-  }
-  
-  .bg-basso-red .navbar-toggler {
-    border-color: #fff;
-  }
-  .bg-basso-red .navbar-toggler:hover,
-  .bg-basso-red .navbar-toggler:focus {
-    background-color: transparent;
-  }
-  .bg-basso-red .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-  }
+  background-color: #bd2821 !important;
+}
+
+.navbar .navbar-nav > li > a {
+  color: #fff !important;
+}
+
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus {
+  font-weight: bold;
+}
+
+.bg-basso-red .navbar-toggler {
+  border-color: #fff;
+}
+.bg-basso-red .navbar-toggler:hover,
+.bg-basso-red .navbar-toggler:focus {
+  background-color: transparent;
+}
+.bg-basso-red .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}

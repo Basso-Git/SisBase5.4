@@ -1,3 +1,30 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the breadcrumb background color */
+.breadcrumb {
+  margin-top: 10px;
+  background-color: #f8f9fa !important;
+  padding: 10px 15px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+
+.breadcrumb-item {
+  font-size: 16px;
+  color: grey !important;
+}
+
+.breadcrumb-item.active {
+  color: #007bff;
+}
+
+.logoBasso :hover {
+  transform: scale(1.1);
+  transition: 1s;
+}
+
 .tox-promotion,
 .tox-statusbar__branding {
   display: none;
@@ -5,4 +32,10 @@
 
 .selected-row {
   background-color: rgb(255, 255, 184);
+}
+
+.stick {
+  position: sticky;
+  top: 58px; /*Este es para que se ponga en una posicion adecuada al bajar y no quede arriba del navbar */
+  z-index: 1020;
 }
