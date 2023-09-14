@@ -9,16 +9,19 @@ $(document).ready(function () {
 //Esta funcion no la puedo sacar de acá es personal de cada uno
 function getAllAreas() {
   let table = $("#areaTable");
-
   $(table).DataTable({
     destroy: true,
+    stateSave: true,
     language: {
       url: baseUrl + "/json/spanishDatatable.json",
     },
     order: [[0, "desc"]],
-    lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
+    lengthMenu: [
+      [10, 25, 50, -1],
+      [10, 25, 50, "Todos"],
+    ],
     ajax: {
-      url: baseUrl + "area/get_all",
+      url: baseUrl + "get_all",
       dataSrc: "data",
     },
     columns: [

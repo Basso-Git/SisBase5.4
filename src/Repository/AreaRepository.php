@@ -39,28 +39,34 @@ class AreaRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Area[] Returns an array of Area objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('a')
-//            ->andWhere('a.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('a.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function getAll()
+    {
+        $sql = "SELECT a.*, d.descripcion AS descripcion_direccion
+        FROM p_area a
+        JOIN p_direccion d ON a.cod_direccion = d.id";
+        return $sql;
+    }
 
-//    public function findOneBySomeField($value): ?Area
-//    {
-//        return $this->createQueryBuilder('a')
-//            ->andWhere('a.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function insert($data, $lastId)
+    {
+        $description = $data["description"];
+        $user = $data["userM"];
+        $directionid = $data["directionId"];
+
+        $sql = "INSERT INTO p_area (id, descripcion, cod_direccion, usuario_m, fecha_m) 
+                    VALUES ($lastId, '$description', $directionid, '$user', Sysdate)";
+        return $sql;
+    }
+
+    public function update($data, $id)
+    {
+        $description = $data["description"];
+        $user = $data["userM"];
+        $directionid = $data["directionId"];
+
+        $sql = "UPDATE p_area SET descripcion = '$description', cod_direccion = $directionid, usuario_m = '$user', fecha_m = Sysdate
+                    WHERE id = $id";
+
+        return $sql;
+    }
 }

@@ -44,6 +44,8 @@ class AreaController extends BaseController
      */
     public function getAll()
     {
+        $areas = $this->baseHandler->getAllAsArray(self::ENTITY_CLASS);
+        return $this->jsonResponse("success", 200, $areas);
         try {
             $areas = $this->baseHandler->getAllAsArray(self::ENTITY_CLASS);
             return $this->jsonResponse("success", 200, $areas);

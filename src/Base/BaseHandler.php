@@ -22,7 +22,7 @@ class BaseHandler extends AbstractController
         );
 
         $statement->executeQuery();
-        $result = $statement->fetchAll();
+        $result = $statement->executeStatement();
 
         return intval($result[0]["LASTID"]);
     }
@@ -35,8 +35,8 @@ class BaseHandler extends AbstractController
         $connection = $this->entityManager->getConnection();
         $statement  = $connection->prepare($sql);
 
-        $statement->executeQuery();
-        $data = $statement->fetchAll();
+        $result = $statement->executeQuery();
+        $data = $result->fetchAllAssociative();
 
         return $data;
     }
@@ -52,8 +52,8 @@ class BaseHandler extends AbstractController
                 : "SELECT * FROM $table WHERE id = $id"
         );
 
-        $statement->executeQuery();
-        $register = $statement->fetch();
+        $result = $statement->executeQuery();
+        $register = $result->fetchOne();
 
         return $register;
     }

@@ -38,4 +38,31 @@ class DirectionRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+    public function getAll()
+    {
+        $sql = "SELECT * FROM p_direccion ORDER BY id DESC";
+        return $sql;
+    }
+
+    public function insert($data, $lastId)
+    {
+        $description = $data["description"];
+        $user = $data["userM"];
+
+        $sql = "INSERT INTO p_direccion (id, descripcion, usuario_m, fecha_m) 
+                    VALUES ($lastId, '$description', '$user', Sysdate)";
+        return $sql;
+    }
+
+    public function update($data, $id)
+    {
+        $description = $data["description"];
+        $user = $data["userM"];
+
+        $sql = "UPDATE p_direccion SET descripcion = '$description', usuario_m = '$user', fecha_m = Sysdate
+                    WHERE id = $id";
+
+        return $sql;
+    }
 }

@@ -38,4 +38,35 @@ class TopPositionRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+    public function getAll()
+    {
+        $sql = "SELECT ps.*, d.descripcion AS descripcion_direccion
+        FROM p_puesto_superior ps
+        JOIN p_direccion d ON ps.cod_direccion = d.id";
+        return $sql;
+    }
+
+    public function insert($data, $lastId)
+    {
+        $description = $data["description"];
+        $user = $data["userM"];
+        $directionid = $data["directionId"];
+
+        $sql = "INSERT INTO p_puesto_superior (id, descripcion, cod_direccion, usuario_m, fecha_m) 
+                    VALUES ($lastId, '$description', $directionid, '$user', Sysdate)";
+        return $sql;
+    }
+
+    public function update($data, $id)
+    {
+        $description = $data["description"];
+        $user = $data["userM"];
+        $directionid = $data["directionId"];
+
+        $sql = "UPDATE p_puesto_superior SET descripcion = '$description', cod_direccion = $directionid, usuario_m = '$user', fecha_m = Sysdate
+                    WHERE id = $id";
+
+        return $sql;
+    }
 }

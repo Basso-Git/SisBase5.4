@@ -13,10 +13,10 @@
 				</div>
 			</div>
 			<div class="card-body p-4">
-				<div class="text-center mt-2" id="spinner-div">
+				<div class="text-center mt-2 mb-2" id="spinner-div">
 					<div class="spinner-border text-primary"></div>
 				</div>
-				<div class="table-container">
+				<div class="container">
 					{% include 'area/_table.twig' %}
 				</div>
 				{% include 'area/_modalSave.twig' with {'directions': directions} %}
@@ -24,7 +24,7 @@
 		</div>
 	</div>
 {% endblock %}
-{% block javascript %}
+{% block customJS %}
 	{{parent()}}
-	<script src="{{asset('js/custom/area.js') }}"></script>
+	<script src="{{ asset('js/custom/area.js') }}"></script>
 {% endblock %}
