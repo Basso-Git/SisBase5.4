@@ -44,38 +44,14 @@
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Archivo
+								Ejemplos
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="{{ path('area_index') }}">Areas</a>
+								<a class="dropdown-item" href="#/">Ejemplo 1</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="{{ path('direction_index') }}">Direcciones</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="{{ path('top_position_index') }}">Puestos Superiores</a>
+								<a class="dropdown-item" href="#/">Ejemplo 2</a>
 							</div>
 						</li>
-						{# <li class="nav-item dropdown">
-													<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-														Puestos
-													</a>
-													<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-														<a class="dropdown-item" href="{{ path('position_index') }}">Detalle</a>
-														{% if is_granted("ROLE_ADMIN") %}
-															<div class="dropdown-divider"></div>
-															<a class="dropdown-item" href="{{ path('category_index') }}">Categorías puesto</a>
-														{% endif %}
-													</div>
-												</li>
-												<li class="nav-item dropdown">
-													<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-														Diccionarios
-													</a>
-													<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-														<a class="dropdown-item" href="{{ path('dictionary_index') }}">Detalle</a>
-														<div class="dropdown-divider"></div>
-														<a class="dropdown-item" href="{{ path('dictionary_cat_index') }}">Categorías diccionario</a>
-													</div>
-												</li> #}
 						{% if app.user %}
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

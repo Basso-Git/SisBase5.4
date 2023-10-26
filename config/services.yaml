@@ -27,3 +27,9 @@ services:
             $urlGenerator: '@router'
         tags:
             - { name: kernel.event_listener, event: kernel.exception, method: onAccessDeniedException }
+    
+    App\ContextListener:
+        class: App\Resource\ContextListener
+
+    App\AbstractToken:
+        class: App\Resource\AbstractToken
